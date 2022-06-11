@@ -11,7 +11,7 @@ runonce()
 
 mymenu=st.sidebar.selectbox("Menu",("Home","Admin Login","Student Login","Create New Account"))
 st.title('Library Management System')
-if(mymenu=="Admin Login"):
+if(mymenu=='Admin Login'):
     if'adminlogin' not in st.session_state:
         st.session_state['adminlogin']=False
     data=db.reference("/Admin").get()
