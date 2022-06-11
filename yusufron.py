@@ -33,6 +33,15 @@ if(mymenu=="Admin Login"):
             ref2=db.reference("/Issue Book/").get()
             df=pd.DataFrame.from_dict(ref2,orient='index')
             st.table(data=df)
+        elif(choice=="Add New Book"):
+            with st.form("Add Book"):
+                bookid=st.text_input("Enter Book ID")
+                bookname=st.text_input("Enter Book Name")
+                authorname=st.text_input("Enter Author Name")
+                button=st.form_submit_button("Add Book")
+                if button:
+                    ref3=db.reference("/Books/"+bookname)
+                    ref3.update({"Bookid":bookid,"Author":authorname})
      
 elif(mymenu=="Student Login"):
     if 'login' not in st.session_state:
